@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: aliceblue;
+        }
+
+        nav {
+            background-color: rgb(153, 171, 171);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+            margin-right: 40px;
+            font-size: 1.3vw;
+        }
+
+        li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 34px;
+
+        }
+
+        video {
+            width: 40%;
+            height: 60%;
+            object-fit: cover;
+            display: block;
+            margin-top: 30px;
+        }
+
+        .resume-container {
+            width: 40%;
+            height: 500px;
+            margin-bottom: 20px;
+            position: relative;
+            left: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            position: relative;
+            left: 45%;
+            margin-bottom: 20px;
+        }
+
+        .projects,
+        .reach {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .reach p {
+            font-size: 20px;
+
+        }
+
+        .contact a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <section class="name">
+                <h2>Radhika</h2>
+            </section>
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Product</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="projects">
+            <h1><u>Featured Project</u></h1>
+            <video controls id="projectVideo" poster="html_multi_media/Attendance Tracker.png">
+                <source src="html_multi_media/Untitled video - Made with Clipchamp.mp4">
+                <track src="html_multi_media/portfolio.vtt" srclang="en" label="English" kind="subtitles"></track>
+            </video>
+
+            <audio src="html_multi_media/music.mp3" controls loop hidden id="bgMusic"></audio>
+        </section>
+        <section class="reach">
+            <h1><u>Reach Me</u> </h1>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27501.33138093616!2d76.66597925!3d30.502189549999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc32344a6e2d7%3A0x81b346dee91799ca!2sChitkara%20University!5e0!3m2!1sen!2sin!4v1753784272448!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p><b>Or Contact me via </b>
+            <ul>
+                <li class="contact"><a href="">XXXXX-45678</a></li>
+                <li class="contact"><a href="">radhika231@gmail.com</a></li>
+
+            </ul>
+            </p>
+        </section>
+
+        <section class="resume-container">
+            <h1><u>My Resume</u></h1>
+            <object data="html_multi_media/png2pdf.pdf" type="application/pdf" width="100%" height="100%">
+                <p>Your browser does not support PDFs.
+                    <a href="html_multi_media/png2pdf.pdf" download>Download the resume</a> instead.
+                </p>
+            </object>
+        </section>
+        <a href="html_multi_media/png2pdf.pdf" download class="download-button">Download Resume</a>
+
+
+    </main>
+</body>
+<script>
+    const projectVideo = document.getElementById('projectVideo');
+    const bgMusic = document.getElementById('bgMusic');
+    projectVideo.addEventListener('play', () => {
+        bgMusic.play();
+    });
+    projectVideo.addEventListener('pause', () => {
+        bgMusic.pause();
+    });
+    projectVideo.addEventListener('end', () => {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    });
+</script>
+
+</html>
