@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form{
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 10px;
+}
+button{
+    position: relative;
+    left: 40%;
+    margin: 10px;
+    background-color: rgb(84, 159, 159);
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+input[type="number"]{
+    width: 200px;
+}
