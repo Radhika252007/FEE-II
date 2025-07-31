@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    *{
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 4%;
+      left: 0;
+      right: 0;
+    }
+    header {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      height: 100px;
+    }
+
+    .left {
+      display: flex;
+    }
+    nav li {
+      list-style: none;
+      display: inline;
+      margin: 30px;
+      font-size: 1.3em;
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90px;
+      font-size: 2em;
+    }
+    .right {
+      display: flex;
+      align-self: center;
+      gap: 30px;
+      margin-right: 50px;
+    }
+    .right button {
+      width: 10vw;
+      height: 40px;
+      border: none;
+      border-radius: 30px;
+    }
+    .right input {
+      width: 18vw;
+    }
+    .account {
+      background-color: rgb(83, 183, 245);
+      color: white;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .main-container {
+      width: 800px;
+      margin-top: 30px;
+    }
+    .info{
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .info span {
+      margin-right: 10px;
+    }
+    img{
+        width: 80%;
+        margin: 0;
+
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+    .top{
+      margin: 30px 30px 30px 0;
+    }
+    .heading{
+      font-size: 32px;
+      margin-bottom: 70px;
+    }
+    aside{
+      width: 300px;
+      position: absolute;
+      left: 0;
+       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+       height: 100vh;
+       top: 15%;
+    }
+    .post{
+      margin: 20px;
+    }
+
+  </style>
+  <body>
+    <header>
+      <nav>
+        <section class="left">
+          <div class="logo">
+            <span>Logo</span>
+          </div>
+          <ul>
+            <li>Categories</li>
+            <li>Resources</li>
+            <li>company.com</li>
+          </ul>
+        </section>
+        <section class="right">
+          <input type="search" placeholder="Search" />
+          <button class="sub">Subscribe</button>
+          <button class="account">Create Your Account</button>
+        </section>
+      </nav>
+    </header>
+    <main>
+      <aside>
+        <div class="post">
+          <h3>Top 5 JavaScript Hacks for Clean Code</h3>
+          <p>
+            Posted on July 25, 2025 <br>
+Improve your JavaScript game with these lesser-known but powerful tricks.
+          </p>
+        </div>
+        <div class="post">
+          <h3>Understanding AI: The Future of Everyday Tools</h3>
+          <p>Posted on July 27, 2025 <br>
+A beginner’s look at how AI is powering modern web applications.</p>
+        </div>
+        <div class="post">
+          <h3>CSS Grid vs Flexbox: Which One to Use?</h3>
+          <p>Posted on July 30, 2025 <br>
+Confused between Grid and Flexbox? Here's when to use which.
+
+</p>
+        </div>
+      </aside>
+      <section class="main-container">
+        <div class="top">
+        <a href="">BLOG LIKE A PRO</a>
+        </div>
+        <div class="heading">
+        <h1>19 blog examples to inspire your best blogging journey</h1>
+        </div>
+        <section>
+          <div class="info">
+            <span><a href="">Radhika</a></span>
+            <span>4 days ago</span>
+            <span>27 min read</span>
+          </div>
+          <p>
+            Ready to share your ideas with the world?<a href="">Start your blog</a>
+          </p>
+          <figure>
+            <img src="1714657126-bakers-bay-golf-and-ocean-club-copy.avif" alt="" srcset="">
+          </figure>
+          <div class="blog">
+            <article>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis
+              quos adipisci cumque sit molestiae numquam veritatis quam modi
+              dolor, repellendus voluptatibus. Nam sunt soluta perspiciatis
+              repudiandae, eligendi in ducimus asperiores accusantium ipsam
+              veniam. Libero aut numquam consectetur. Cum qui deserunt commodi?
+              Optio, repellendus nisi. Ea, nemo voluptatibus fuga excepturi ad
+              facilis doloribus dicta dolore, odio ipsum magnam architecto qui
+              omnis quam, expedita illo! Id dolores mollitia possimus excepturi
+              quasi quo vitae provident veritatis et ratione. Esse natus
+              provident autem dolore odio deserunt, sed fuga enim culpa earum
+              eos laboriosam iusto totam ipsa reiciendis! Doloremque voluptate
+              temporibus distinctio quidem quis odit.
+            </article>
+            <article>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam reprehenderit temporibus omnis, explicabo numquam accusamus beatae magni officiis, iure harum facere similique maxime eaque, obcaecati voluptatum inventore. Minus asperiores ut doloribus enim ab repudiandae velit dolorem obcaecati, amet eveniet voluptas, doloremque vero hic expedita debitis voluptates, atque nesciunt nemo veritatis.
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
