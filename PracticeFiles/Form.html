@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      label {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      input {
+        margin: 10px;
+        margin-left: 20px;
+        height: 30px;
+        border-radius: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 70%;
+      }
+
+      textarea {
+        margin-top: 10px;
+        position: relative;
+        top: 10px;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      form {
+        border: 3px solid black;
+        border-radius: 20px;
+        width: 45%;
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: yellow;
+        border: none;
+        height: 30px;
+        border-radius: 10px;
+      }
+
+      button:hover {
+        background-color: rgb(202, 202, 41);
+      }
+      .dropdown {
+        height: 30px;
+        border-radius: 10px;
+        background-color: rgb(247, 244, 244);
+      }
+      input[type="checkbox"] {
+        position: relative;
+        top: 3%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Registeration Form</h3>
+    <form action="/submit">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        placeholder="Type your name here"
+        id="name"
+        name="name"
+        required
+      /><br />
+      <label for="name">Age:</label>
+      <input type="number" id="age" name="age" min="18" max="99" /><br />
+      <label for="email">Email:</label>
+      <input type="email" required ><br />
+      <label for="password">Password:</label>
+      <input type="password" required minlength="8" /><br />
+      <label for="confirm">Confirm Password:</label>
+      <input type="password" required minlength="8" /><br />
+      <label for="terms">Accept Terms: </label>
+      <input type="checkbox"/>
+      <div class="btn">
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </body>
+</html>
