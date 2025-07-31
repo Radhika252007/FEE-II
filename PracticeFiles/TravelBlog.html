@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="icons8-travel-diary-48.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Truculenta:opsz,wght@12..72,100..900&display=swap"
+        rel="stylesheet">
+    <title>My Travel Blog</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: rgb(234, 230, 230);
+        }
+
+        header {
+            box-shadow: 0 4px 6px -1px rgba(136, 134, 134, 0.3);
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav .left {
+            font-size: 26px;
+            flex: 0 0 auto;
+        }
+
+        nav .right {
+            width: 60%;
+            font-size: 22px;
+            flex: 0 0 1;
+        }
+
+        nav ul li {
+            display: inline;
+            list-style: none;
+            margin-right: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(26, 26, 109);
+            font-weight: 700;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .top {
+            margin: 40px;
+            padding: 20px;
+            width: 90%;
+            display: flex;
+            background-color: rgb(73, 96, 172);
+            color: white;
+            justify-content: space-between;
+        }
+
+        .left-text {
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .left-text h2 {
+            margin-bottom: 10px;
+            font-size: 34px;
+        }
+
+        .right-img img {
+            width: 250px;
+            border: 2px solid white;
+            margin-top: 20px;
+        }
+        .center{
+            text-align: center;
+            padding: 20px;
+        }
+        .center h1{
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        table{
+            border-collapse: collapse ;
+        }
+        td,th{
+            padding: 20px;
+        }
+        th{
+            background-color: rgb(97, 182, 210);
+        }
+        .quote{
+            background-color: rgb(55, 55, 97);
+            color: white;
+            height: 35vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 23px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        .quote blockquote{
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .quote span{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .bottom{
+            margin-top: 45px;
+            text-align: center;
+        }
+        h2{
+            margin-bottom: 40px;
+            font-size: 30px ;
+
+        }
+        .fillInForm{
+            margin-top: 40px;
+            background-color: rgb(9, 251, 114);
+            padding: 40px;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 20px;
+        }
+        form{
+            background-color: white;
+            padding: 20px;
+        }
+        input,select{
+            margin-bottom: 20px;
+        }
+        label{
+            font-weight: 600;
+        }
+        input[type="text"],select,input[type="email"]{
+            width: 100%;
+            height: 35px;
+        }
+        button{
+            width: 100%;
+            height: 30px;
+            background-color: red;
+            border: none;
+            color: white;
+        }
+        footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(45, 44, 44);
+            color: white;
+            height: 80px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <h1>My Travel Blog</h1>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Destinations</a></li>
+                    <li><a href="">Stories</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="top">
+            <div class="left-text">
+                <h2>Welcome to My Travel Adventures!</h2>
+                <p>A little corner of the internet where I share stories, tips, and snapshots from my adventures around
+                    the world. Whether it’s hidden gems, local eats, or unforgettable landscapes, I’m here to inspire
+                    your next journey. Let’s explore, one destination at a time!</p>
+            </div>
+            <div class="right-img">
+                <img src="adventure-1846482_640.jpg" alt="">
+            </div>
+        </section>
+        <section class="center">
+            <h1>Top 3 Travel Destinations</h1>
+            <table border="1">
+                <thead>
+                   <tr>
+                    <th>Country</th>
+                    <th>Best Time to Visit</th>
+                    <th>Language</th>
+                   </tr>
+                    <thead>
+                        <tbody>
+                            <tr>
+                                <td>Japan</td>
+                                <td>March-May (Spring)</td>
+                                <td>Japanese</td>
+                            </tr>
+                            <tr>
+                                <td>Iceland</td>
+                                <td>June-August (Summer)</td>
+                                <td>Icelandic</td>
+                            </tr>
+                            <tr>
+                                <td>Peru</td>
+                                <td>May-September (Dry Season)</td>
+                                <td>Spanish, Quechua</td>
+                            </tr>
+                        </tbody>
+            </table>
+        </section>
+        <section class="quote">
+            <blockquote>The world is a book and those who do not travel read only <br> one page.</blockquote>
+            <span>- Saint Augustine</span>
+        </section>
+        <section class="bottom">
+            <h2>My Latest Adventure</h2>
+            <video controls width="500" height="300" id="travelVideo">
+                <source src="mixkit-going-down-a-curved-highway-through-a-mountain-range-41576-hd-ready.mp4">
+                <p>Your Browser does not support this video.</p>
+            </video>
+            <audio src="magical-eden-378679.mp3" loop controls hidden id="bgMusic"></audio>
+        </section>
+        <section class="fillInForm">
+            <h2>Plan Your Next Adventure</h2>
+            <form action="#">
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="destination">Destination Interest:</label><br>
+                <select name="place" id="place">
+                    <option value="africa">Africa</option>
+                    <option value="america">America</option>
+                    <option value="greece">Greece</option>
+                    <option value="switzerland">Switerland</option>
+                </select><br>
+                <label for="travel">Travel Interests (Check all that apply):</label><br>
+                <input type="checkbox"> <span>Adventure</span>
+                <input type="checkbox"> <span>Culture</span>
+                <input type="checkbox"> <span>Food</span>
+                <input type="checkbox"> <span>Photography</span><br>
+                <label for="type">Type of Traveler:</label><br>
+                <input type="radio"> Solo Traveler
+                <input type="radio"> Couple
+                <input type="radio"> Family
+                <input type="radio"> Group <br>
+                <label for="email">Email ID:</label><br>
+                <input type="email" name="email" id="email" required><br>
+                <button>Submit Travel Plans</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>
+            &copy; 2024 My Travel Blog. All rights reserved. Made with &#10084;&#65039; for fellow travelers.
+        </p>
+    </footer>
+</body>
+<script>
+    const projectVideo = document.getElementById('travelVideo');
+    const bgMusic = document.getElementById('bgMusic');
+    projectVideo.addEventListener('play', () => {
+        bgMusic.play();
+    });
+    projectVideo.addEventListener('pause', () => {
+        bgMusic.pause();
+    });
+    projectVideo.addEventListener('end', () => {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    });
+</script>
+
+</html>
