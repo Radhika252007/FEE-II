@@ -1,0 +1,12 @@
+{
+    "welcome" : {"message":"Hello there"},
+    "user" : {
+        "name" : "Radhika",
+        "email" : "radhikamadaan1234@gmail.com"
+    },
+    "product" : {
+        "id" : "1234",
+        "name" : "Nike Air",
+        "inStock" : "true"
+    }
+}

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Resume & Portfolio</title>
+  <style>
+    :root {
+      --bg:#0f172a;
+      --card:#1f2a44;
+      --radius:12px;
+      --shadow:0 20px 40px rgba(0,0,0,0.4);
+      --accent:#6366f1;
+      --text:#e6e8ff;
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
+    }
+    *{box-sizing:border-box;}
+    body {
+      margin:0;
+      background: linear-gradient(135deg,#0f172a 0%,#1f2a44 80%);
+      color: var(--text);
+      min-height:100vh;
+      line-height:1.4;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem 1.5rem;
+    }
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      gap:1rem;
+      align-items: center;
+      background: var(--card);
+      padding:1rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .profile-photo {
+      flex: 0 0 120px;
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      overflow:hidden;
+      border:4px solid var(--accent);
+    }
+    .profile-photo img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .info {
+      flex:1;
+      min-width:200px;
+    }
+    .info h1 {
+      margin:0;
+      font-size:2rem;
+      display:inline-block;
+    }
+    .designation {
+      margin:4px 0 0;
+      font-weight:600;
+      color:#a3b1ff;
+    }
+    .summary, .skills, .certs, .media, .embed-resume, .contact {
+      margin-top:1.5rem;
+      background: var(--card);
+      padding:1.25rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    h2 {
+      margin-top:0;
+      font-size:1.5rem;
+      position: relative;
+      padding-bottom:6px;
+    }
+    h2:after {
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:60px;
+      height:4px;
+      background: var(--accent);
+      border-radius:2px;
+    }
+    .skills table {
+      width:100%;
+      border-collapse: collapse;
+      margin-top:0.75rem;
+    }
+    .skills th, .skills td {
+      padding:8px 10px;
+      text-align:left;
+    }
+    .skills th {
+      border-bottom:2px solid rgba(255,255,255,0.1);
+    }
+    .progress {
+      background: rgba(255,255,255,0.1);
+      border-radius:12px;
+      overflow:hidden;
+      height:12px;
+      position: relative;
+    }
+    .progress-inner {
+      height:100%;
+      border-radius:12px;
+      background: var(--accent);
+      transition: width .5s ease;
+    }
+    .certs ul, .certs dl {
+      margin:0;
+      padding:0;
+      list-style: none;
+    }
+    .certs li, .certs dt {
+      margin-bottom:0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap:8px;
+    }
+    .certs dd {
+      margin:0 0 8px 24px;
+      color:#c7cdfd;
+    }
+    .media {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap:1rem;
+    }
+    .media > div {
+      background: rgba(255,255,255,0.03);
+      padding:10px;
+      border-radius:8px;
+    }
+    .iframe-wrapper {
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      border-radius:8px;
+    }
+    .iframe-wrapper iframe, .iframe-wrapper video {
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      border:0;
+      border-radius:8px;
+    }
+    .embed-resume .pdf-viewer {
+      width:100%;
+      height:500px;
+      border: none;
+      border-radius:8px;
+    }
+    .contact form {
+      display: grid;
+      gap:12px;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    }
+    .field {
+      position: relative;
+      display:flex;
+      flex-direction: column;
+    }
+    .field label {
+      font-size:0.85rem;
+      margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .field input, .field textarea {
+      padding:10px 12px;
+      border:none;
+      border-radius:8px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-size:1rem;
+      resize: vertical;
+    }
+    .field textarea {
+      min-height:120px;
+    }
+    .btn {
+      background: var(--accent);
+      border:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-weight:600;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition: filter .2s;
+    }
+    .btn:hover { filter: brightness(1.1); }
+    .social-iframes {
+      display:flex;
+      gap:1rem;
+      flex-wrap: wrap;
+    }
+    .social {
+      flex:1 1 300px;
+      min-height:200px;
+      border:2px solid rgba(255,255,255,0.08);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .footer {
+      margin-top:2rem;
+      text-align:center;
+      font-size:0.8rem;
+      color:rgba(255,255,255,0.6);
+    }
+    @media (max-width: 900px){
+      .header { flex-direction: column; }
+      .profile-photo { margin:auto; }
+      .info { text-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" aria-label="Resume and Portfolio">
+    <header class="header" aria-label="Resume Header">
+      <div class="profile-photo" aria-label="Profile photo">
+        <img src="https://via.placeholder.com/150" alt="Profile Photo" loading="lazy" />
+      </div>
+      <div class="info">
+        <h1>Jane Doe</h1>
+        <div class="designation">Full Stack Developer &amp; Portfolio Creator</div>
+        <div style="margin-top:8px;">
+          <span aria-label="Location">📍 Chandigarh, India</span>
+          &nbsp;|&nbsp;
+          <span aria-label="Email">✉️ jane.doe@example.com</span>
+          &nbsp;|&nbsp;
+          <span aria-label="Phone">📞 +91 98765 43210</span>
+        </div>
+      </div>
+      <div style="margin-left:auto; display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="#contact" aria-label="Contact me" style="text-decoration:none;">
+          <button class="btn">✉️ Contact Me</button>
+        </a>
+        <a href="sample_resume.pdf" download aria-label="Download resume" style="text-decoration:none;">
+          <button class="btn">📄 Download Resume</button>
+        </a>
+      </div>
+    </header>
+
+    <!-- Career Summary -->
+    <section class="summary" aria-label="Career Summary">
+      <h2>Career Summary</h2>
+      <p>
+        Passionate developer with a strong foundation in modern web technologies including HTML, CSS, JavaScript, and backend integration. Experienced in building responsive, accessible, and interactive user interfaces. Adept at collaborating in team environments, version controlling with Git, and continuously learning newer frameworks and best practices. Seeking to contribute to innovative projects that blend usability with performance.
+      </p>
+    </section>
+
+    <!-- Skills Table -->
+    <section class="skills" aria-label="Skills">
+      <h2>Skills</h2>
+      <table aria-label="Skills and experience level">
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Experience</th>
+            <th>Proficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTML</td>
+            <td>3+ years</td>
+            <td>
+              <div class="progress" aria-label="HTML proficiency 90%">
+                <div class="progress-inner" style="width:90%;"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>CSS</td>
+            <td>3+ years</td>
+            <td>
+              <div class="progress" aria-label="CSS proficiency 85%">
+                <div class="progress-inner" style="width:85%;"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>2+ years</td>
+            <td>
+              <div class="progress" aria-label="JavaScript proficiency 75%">
+                <div class="progress-inner" style="width:75%;"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Python</td>
+            <td>1.5 years</td>
+            <td>
+              <div class="progress" aria-label="Python proficiency 65%">
+                <div class="progress-inner" style="width:65%;"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Git &amp; GitHub</td>
+            <td>2 years</td>
+            <td>
+              <div class="progress" aria-label="Git proficiency 80%">
+                <div class="progress-inner" style="width:80%;"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certs" aria-label="Certifications">
+      <h2>Certifications</h2>
+      <dl>
+        <dt>🎓 <strong>Front-End Web Development</strong> – Coursera</dt>
+        <dd>Completed a specialization covering responsive design, HTML5, CSS3, and JavaScript fundamentals with practical projects.</dd>
+
+        <dt>📜 <strong>Git &amp; GitHub Mastery</strong> – GitHub Learning Lab</dt>
+        <dd>Hands-on training in version control workflows, branching strategies, PR reviews, and collaboration best practices.</dd>
+
+        <dt>🧠 <strong>Introduction to Programming with Python</strong> – edX</dt>
+        <dd>Fundamentals of Python programming including data structures, control flow, and scripting for automation.</dd>
+      </dl>
+    </section>
+
+    <!-- Media: Audio/Video and Profiles -->
+    <section class="media" aria-label="Media and introductions">
+      <div aria-label="Audio introduction">
+        <h2 style="font-size:1.25rem;">Audio Introduction</h2>
+        <p>Hi, I'm Jane. Here's a quick audio self-intro:</p>
+        <audio controls aria-label="Audio self introduction">
+          <source src="intro_audio.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div aria-label="Video introduction">
+        <h2 style="font-size:1.25rem;">Video Introduction</h2>
+        <div class="iframe-wrapper" aria-label="YouTube video">
+          <!-- Example: Replace with actual YouTube embed link -->
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div aria-label="LinkedIn and GitHub embeds" style="grid-column:1/-1;">
+        <h2 style="font-size:1.25rem;">Profiles</h2>
+        <div class="social-iframes">
+          <div class="social" aria-label="LinkedIn profile">
+            <div style="padding:6px; font-size:0.9rem; border-bottom:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.02);">
+              LinkedIn
+            </div>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:123456789" title="LinkedIn profile" loading="lazy" aria-label="Embedded LinkedIn profile"></iframe>
+          </div>
+          <div class="social" aria-label="GitHub profile">
+            <div style="padding:6px; font-size:0.9rem; border-bottom:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.02);">
+              GitHub
+            </div>
+            <iframe src="https://github.com/yourusername" title="GitHub profile" loading="lazy" aria-label="Embedded GitHub profile"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embed Resume -->
+    <section class="embed-resume" aria-label="Embedded resume pdf">
+      <h2>Resume Preview</h2>
+      <p>View or download the full PDF resume below:</p>
+      <object data="sample_resume.pdf" type="application/pdf" class="pdf-viewer" aria-label="Embedded resume PDF">
+        <p>Your browser doesn't support embedded PDF. <a href="sample_resume.pdf" style="color: var(--accent);">Download the resume</a> instead.</p>
+      </object>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact" id="contact" aria-label="Contact Form">
+      <h2>Contact</h2>
+      <form id="contactForm" aria-label="Contact form">
+        <div class="field">
+          <label for="name">👤 Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name" aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="email">✉️ Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="phone">📞 Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+        </div>
+        <div class="field">
+          <label for="subject">📝 Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="Reason for contact" aria-required="true" />
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="message">💬 Message</label>
+          <textarea id="message" name="message" required placeholder="Your message..." aria-required="true"></textarea>
+        </div>
+        <div style="grid-column:1/-1; display:flex; justify-content:flex-end;">
+          <button type="submit" class="btn" aria-label="Submit contact form">
+            🚀 Send Message
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <div class="footer">
+      <p>&copy; 2025 Jane Doe. Built with HTML, CSS, and minimal JavaScript. Replace placeholders with your real content.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const subject = this.subject.value.trim();
+      const message = this.message.value.trim();
+      if (!name || !email || !subject || !message) {
+        alert('Please fill all required fields.');
+        return;
+      }
+      alert('Thank you, ' + name + '! Your message has been captured. (This is a demo, implement backend to send.)');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

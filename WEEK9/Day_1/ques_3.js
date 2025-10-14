@@ -1,0 +1,11 @@
+function countVowels(string){
+    let count = 0;
+    string.toLowerCase();
+    for(let i=0;i<string.length;i++){
+        if(string[i]==='a' || string[i]==='e'|| string[i]==='i'|| string[i]==='o'|| string[i]==='u'){
+            count +=1;
+        }
+    }
+    return count;
+}
+console.log(countVowels("Radhika"));

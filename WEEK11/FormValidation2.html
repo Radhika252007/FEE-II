@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <section class="form-container">
+        <form action="#" method="post">
+            <label for="firstname">First Name:</label>
+            <input type="text" pattern="[A-Za-z]+" id="firstName" class="first" required> <br>
+            <span id="firstNameError"></span>
+            <label for="lastname">Last Name:</label>
+            <input type="text" pattern="[A-Za-z]+" id="lastName" class="last" required> <br>
+             <span id="lastNameError"></span>
+            <label for="lastname">Last Name:</label>
+            <input type="tel" pattern="[0-9]{10}" id="phoneNum" class="phone" required> <br>
+             <span id="phoneNumError"></span>
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </section>
+</body>
+<script>
+    document.getElementById('submitBtn').addEventListener('click',(event)=>{  
+        event.preventDefault();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const phoneNum = document.getElementById('phoneNum').value.trim();
+    if(firstName==='' && lastName === '' && phoneNum === ''){
+        alert('Atleast One Input is required');
+    }
+    else{
+        alert('Form Submitted Successfully');
+    }
+    });
+</script>
+</html>

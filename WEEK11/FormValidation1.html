@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="FormValidation1.js" defer></script>
+</head>
+<body>
+    <section class="form-container">
+        <form action="#" method="post">
+            <label for="firstname">First Name:</label>
+            <input type="text" pattern="[A-Za-z]+" id="firstName" class="first" required> <br>
+            <label for="lastname">Last Name:</label>
+            <input type="text" pattern="[A-Za-z]+" id="lastName" class="last" required> <br>
+            <label for="lastname">Last Name:</label>
+            <input type="tel" pattern="[0-9]{10}" id="phoneNum" class="phone" required> <br>
+            <button type="submit" onclick="ValidateForm(event)">Submit</button>
+        </form>
+    </section>
+</body>
+</html>
